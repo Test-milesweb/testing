@@ -1,24 +1,22 @@
-// Calculator module with basic operations
-const calculator = {
-  add: (a, b) => a + b,
-  subtract: (a, b) => a - b,
-  multiply: (a, b) => a * b,
-  divide: (a, b) => {
-    if (b === 0) {
-      throw new Error('Division by zero is not allowed');
-    }
-    return a / b;
-  },
-  power: (a, b) => Math.pow(a, b),
-  isEven: (num) => num % 2 === 0,
-  factorial: (n) => {
-    if (n < 0) {
-      throw new Error('Factorial of negative number is not defined');
-    }
-    if (n === 0 || n === 1) return 1;
-    return n * calculator.factorial(n - 1);
-  }
-};
+function printTimes() {
+  const now = new Date();
 
-module.exports = calculator;
+  // India Time (IST)
+  const indiaTime = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    dateStyle: "full",
+    timeStyle: "medium",
+  }).format(now);
 
+  // USA Time (New York - Eastern Time)
+  const usaTime = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    dateStyle: "full",
+    timeStyle: "medium",
+  }).format(now);
+
+  console.log("🇮🇳 India Time (IST):", indiaTime);
+  console.log("🇺🇸 USA Time (New York):", usaTime);
+}
+
+printTimes();
